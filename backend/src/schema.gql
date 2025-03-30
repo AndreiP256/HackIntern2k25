@@ -1,0 +1,61 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  nume: String!
+  prenume: String!
+  email: String!
+  role: String
+}
+
+type AuthResponse {
+  access_token: String!
+}
+
+type Query {
+  getHello: String!
+  users(id: String): [User!]!
+}
+
+type Mutation {
+  createUser(createUserDto: CreateUserDto!): User!
+  updateUser(id: String!, updateUserDto: UpdateUserDto!): User!
+  removeUser(id: String!): User!
+  login(authInput: AuthInput!): AuthResponse!
+  register(regInput: RegInput!): User!
+}
+
+input CreateUserDto {
+  nume: String!
+  role: Role
+  prenume: String!
+  email: String!
+  password: String!
+}
+
+enum Role {
+  ROLE1
+  ROLE2
+}
+
+input UpdateUserDto {
+  nume: String
+  prenume: String
+  email: String
+  password: String
+  role: Role
+}
+
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+input RegInput {
+  email: String!
+  password: String!
+  nume: String!
+  prenume: String!
+}
