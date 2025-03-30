@@ -18,9 +18,6 @@ export class AuthResolver {
     if (!user) {
       throw new Error('Invalid credentials');
     }
-    if (!user.isActive) {
-      throw new Error('User is not active');
-    }
     return this.authService.login(user);
   }
 
